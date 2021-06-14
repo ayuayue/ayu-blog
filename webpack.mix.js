@@ -11,7 +11,36 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js').vue()
     .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+        require('postcss-import'),
+        require('tailwindcss'),
+    ])
+    .webpackConfig(require('./webpack.config'));
+if (mix.inProduction()) {
+    mix.version();
+}
+// mix.browserSync({
+//     proxy: '127.0.0.1',
+//     host: '127.0.0.1',
+//     open: 'external'
+// });
+mix.browserSync({
+    proxy: '127.0.0.1',
+    open: false,
+    watchOptions: {
+        usePolling: true,
+        interval: 500,
+        ignored: /node_modules/, // 这里可不用
+    },
+    files: [ // 整个files数组也可以不写
+        'app/**/*.php',
+        'resources/views/**/*.php',
+        'resources/js/app.js',
+        'resources/js/components/*.vue',
+        'packages/mixdinternet/frontend/src/**/*.php',
+        'public/js/**/*.js',
+        'public/css/**/*.css'
+    ],
+    notify: false, // 关闭右上角的 connected 弹窗提示
+});
