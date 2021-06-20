@@ -240,6 +240,36 @@
             <main>
                 <slot></slot>
             </main>
+            <footer class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+                <div class="absolute inset-x-100 bottom-0 mt-4 sm:items-center sm:justify-between ">
+                    <div class="text-center text-lg text-gray-500 sm:text-left ">
+                        <div class="flex items-center">
+                            <a href="mailto:1401262639@qq.com" class="ml-1 hover:text-blue-700">
+                                邮箱
+                            </a>
+                            <a href="https://github.com/ayuayue" class="ml-1 hover:text-blue-700">
+                                Github
+                            </a>
+                            <a href="https://space.bilibili.com/109011082" class="ml-1 hover:text-blue-700">
+                                b站
+                            </a>
+                            <!--                    <a href="https://blog.caoayu.xyz/index.xml" class="ml-1 underline">-->
+                            <!--                        github-->
+                            <!--                    </a>-->
+                        </div>
+                    </div>
+                    <div class="text-center text-lg text-gray-500 sm:text-left ">
+                        <div class="flex items-center">
+                            <a href="#" class="ml-1 ">
+                                © Caoayu
+                            </a>
+                            <a href="#" class="ml-1 ">
+                                |   豫ICP备19012822号-2
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 </template>
@@ -264,7 +294,7 @@
 
         data() {
             return {
-                showingNavigationDropdown: false,
+                showingNavigationDropdown: true,
             }
         },
 
